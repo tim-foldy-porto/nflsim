@@ -1,0 +1,25 @@
+[project]
+name = "nfl-simulator"
+version = "0.1.0"
+description = "Play-by-play NFL game simulator with probabilistic outcomes"
+requires-python = ">=3.10"
+dependencies = [
+    "nfl_data_py>=0.3.0",
+    "polars>=1.0",
+    "numpy>=1.26",
+    "typer>=0.9",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-cov"]
+
+[project.scripts]
+nflsim = "nflsim.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["nflsim"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
